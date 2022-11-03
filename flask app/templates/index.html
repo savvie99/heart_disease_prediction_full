@@ -1,0 +1,135 @@
+<html>
+	<head>
+	<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+		<title>Cardiovascular Disease Prediction Form</title>
+	</head>
+	<body>
+	<!-- Java Script -->
+		<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+
+		<!-- Navbar-->
+		<nav class="navbar navbar-dark bg-dark">
+			<span class="navbar-brand mb-0 h1">Cardiovascular Disease Prediction Form</span>
+		</nav>
+		<div class="container">
+			<br>
+			<!--Form-->
+			<form action = "{{url_for('predict')}}" method ="POST" >
+				<fieldset>
+				<legend>Fill out patient data</legend><br>
+				  <div class="card card-body" >
+					  <div class="form-group  row">
+						<div class="col-sm-3">
+							<label for="AGE">Age</label>
+							<input type="number" class="form-control" id="AGE" name="AGE" required>
+						</div>
+						<div class="col-sm-3">
+							<label for="SEX">Sex</label>
+							<select class="form-control" id="SEX"  name="SEX" required>
+							  <option disabled selected value> -- Select an Option -- </option>
+							  <option value = "1">Male</option>
+							  <option value = "2">Female</option>
+							</select>
+					   </div>
+					  </div>
+					  <br>
+						<div class="col-sm">
+						<label for="TOTCHOL">Serum Total Cholesterol (mg/dL)</label>
+						<input type="number" class="form-control" id="TOTCHOL" name="TOTCHOL"  required>
+						</div>
+						<div class="col-sm">
+						<label for="SYSBP">Systolic Blood Pressure (mmHg)</label>
+						<input type="number" class="form-control" id="SYSBP" name="SYSBP" required>
+						</div>
+						  <div class="col-sm">
+							<label for="DIABP">Diastolic Blood Pressure (mmHg)</label>
+							<input type="number" class="form-control" id="DIABP" name="DIABP"  required>
+						  </div>
+						  <div class="col-sm">
+							<label for="CIGPDAY">Number of cigarettes smoked daily</label>
+							<input type="number" class="form-control" id="CIGPDAY" name="CIGPDAY" required>
+						  </div>
+						  <div class="col-sm">
+							<label for="DIABETES">Does the patient have a history of Diabetes?</label>
+							<select class="form-control" id="DIABETES" name="DIABETES" required>
+							  <option disabled selected value> -- Select an Option -- </option>
+							  <option value = "0">No</option>
+							  <option value = "1">Yes</option>
+							</select>
+						</div>
+						<div class="col-sm">
+						<label for="BPMEDS">Use of Anti-hypertensive medication at exam</label>
+						<select class="form-control" id="BPMEDS" name="BPMEDS" required>
+							<option disabled selected value> -- Select an Option -- </option>
+							<option value = "0">Not currently used</option>
+							<option value = "1">Currently used</option>
+						</select>
+					</div>
+					<div class="col-sm">
+					<label for="PREVCHD">Does the patient have a history of heart disease?</label>
+					<select class="form-control" id="PREVCHD" name="PREVCHD" required>
+						<option disabled selected value> -- Select an Option -- </option>
+						<option value = "0">No</option>
+						<option value = "1">Yes</option>
+					</select>
+				</div>
+				<div class="col-sm">
+				<label for="PREVAP">Does the patient have a history of Angina Pectoris (chest pain)?</label>
+				<select class="form-control" id="PREVAP" name="PREVAP" required>
+					<option disabled selected value> -- Select an Option -- </option>
+					<option value = "0">No</option>
+					<option value = "1">Yes</option>
+				</select>
+			</div>
+			<div class="col-sm">
+			<label for="PREVMI">Does the patient have a history of Myocardial Infarction (heart attack)?</label>
+			<select class="form-control" id="PREVMI" name="PREVMI" required>
+				<option disabled selected value> -- Select an Option -- </option>
+				<option value = "0">No</option>
+				<option value = "1">Yes</option>
+			</select>
+		</div>
+		<div class="col-sm">
+		<label for="PREVSTRK">Does the patient have a history of Stroke</label>
+		<select class="form-control" id="PREVSTRK" name="PREVSTRK" required>
+			<option disabled selected value> -- Select an Option -- </option>
+			<option value = "0">No</option>
+			<option value = "1">Yes</option>
+		</select>
+	</div>
+	<div class="col-sm">
+	<label for="PREVHYP">Is the patient defined as hypertensive?</label>
+	<select class="form-control" id="PREVHYP" name="PREVHYP" required>
+		<option disabled selected value> -- Select an Option -- </option>
+		<option value = "0">No</option>
+		<option value = "1">Yes</option>
+	</select>
+</div>
+
+
+					  </div>
+					  <br>
+					  <div class="form-group">
+						<input class="btn btn-primary" type="submit" value="Result">
+					  </div>
+
+					  <!--Prediction Result-->
+					  <div id ="result">
+							<strong style="color:red">{{result}}</strong>
+							<strong style="color:red">{{prob}}</strong>
+					 </div>
+				     </div>
+			 </fieldset>
+			</form>
+
+		</div>
+
+	</body>
+</html>
